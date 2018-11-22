@@ -14,9 +14,14 @@ namespace UnitTests
         private TUnderTest _testInstance;
         protected TUnderTest TestInstance => _testInstance ?? (_testInstance = _autoMocker.CreateInstance<TUnderTest>());
 
-        protected Mock<T> GetDependency<T>() where T : class 
+        protected T CreateMock<T>(MockBehavior mockBehaviour = MockBehavior.Loose) where T : class
         {
-            return _autoMocker.GetMock<T>();
+            return new Mock<T>(mockBehaviour).Object;
+        }
+
+        protected T GetDependency<T>() where T : class 
+        {
+            return _autoMocker.GetMock<T>().Object;
         }
 
         [Background]
