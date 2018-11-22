@@ -16,7 +16,7 @@ namespace RobotCommandRunner
         {
             Console.Clear();
 
-            var robot = new Robot();
+            var robot = new Robot(new ConsoleAdapter());
             var controller = new RobotController();
 
             var move = new MoveCommand(robot) {ForwardDistance = 1000};

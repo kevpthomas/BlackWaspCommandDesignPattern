@@ -11,28 +11,32 @@ namespace RobotCommand
     /// </remarks>
     public class Robot : IRobot
     {
+        private readonly IConsoleAdapter _console;
+
+        public Robot(IConsoleAdapter console)
+        {
+            _console = console;
+        }
+
         public void Move(int forwardDistance)
         {
             if (forwardDistance > 0)
-                Console.WriteLine("Robot moved forwards {0}mm.", forwardDistance);
+                _console.WriteLine("Robot moved forwards {0}mm.", forwardDistance);
             else
-                Console.WriteLine("Robot moved backwards {0}mm.", -forwardDistance);
+                _console.WriteLine("Robot moved backwards {0}mm.", -forwardDistance);
         }
  
         public void RotateLeft(double leftRotation)
         {
             if (leftRotation > 0)
-                Console.WriteLine("Robot rotated left {0} degrees.", leftRotation);
+                _console.WriteLine("Robot rotated left {0} degrees.", leftRotation);
             else
-                Console.WriteLine("Robot rotated right {0} degrees.", -leftRotation);
+                _console.WriteLine("Robot rotated right {0} degrees.", -leftRotation);
         }
  
         public void Scoop(bool upwards)
         {
-            if (upwards)
-                Console.WriteLine("Robot gathered soil in scoop.");
-            else
-                Console.WriteLine("Robot released scoop contents.");
+            _console.WriteLine(upwards ? "Robot gathered soil in scoop." : "Robot released scoop contents.");
         }
     }
 }
