@@ -12,7 +12,7 @@
     {
         public bool ScoopUpwards { get; set; }
  
-        public ScoopCommand(Robot robot) : base(robot) { }
+        public ScoopCommand(IRobot robot) : base(robot) { }
  
         public override void Execute()
         {

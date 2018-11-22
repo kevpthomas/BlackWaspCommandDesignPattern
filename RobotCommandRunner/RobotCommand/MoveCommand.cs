@@ -12,7 +12,7 @@
     {
         public int ForwardDistance { get; set; }
  
-        public MoveCommand(Robot robot) : base(robot) { }
+        public MoveCommand(IRobot robot) : base(robot) { }
  
         public override void Execute()
         {

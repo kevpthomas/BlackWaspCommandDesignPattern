@@ -9,7 +9,7 @@ namespace RobotCommand
     /// Receiver objects contain the methods that are executed when one or more commands are invoked.
     /// This allows the actual functionality to be held separately to the Command definitions.
     /// </remarks>
-    public class Robot
+    public class Robot : IRobot
     {
         public void Move(int forwardDistance)
         {

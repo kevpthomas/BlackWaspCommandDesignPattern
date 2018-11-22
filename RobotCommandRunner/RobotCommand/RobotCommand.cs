@@ -10,9 +10,9 @@
     /// </remarks>
     public abstract class RobotCommand
     {
-        protected Robot Robot;
+        protected IRobot Robot;
 
-        protected RobotCommand(Robot robot)
+        protected RobotCommand(IRobot robot)
         {
             Robot = robot;
         }

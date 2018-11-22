@@ -12,7 +12,7 @@
     {
         public double LeftRotation { get; set; }
  
-        public RotateCommand(Robot robot) : base(robot) { }
+        public RotateCommand(IRobot robot) : base(robot) { }
  
         public override void Execute()
         {
