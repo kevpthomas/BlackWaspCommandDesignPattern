@@ -19,7 +19,7 @@ namespace UnitTests
                 .x(() => TestInstance.Move(forwardDistance));
 
             "Then the robot moves forwards"
-                .x(() => Console.Verify(m => m.WriteLine("Robot moved forwards {0}mm.", forwardDistance), Times.Once));
+                .x(() => GetDependency<IConsoleAdapter>().Verify(m => m.WriteLine("Robot moved forwards {0}mm.", forwardDistance), Times.Once));
         }
 
         [Scenario]
@@ -34,7 +34,7 @@ namespace UnitTests
                 .x(() => TestInstance.Move(backwardDistance));
 
             "Then the robot moves backwards"
-                .x(() => Console.Verify(m => m.WriteLine("Robot moved backwards {0}mm.", -backwardDistance), Times.Once));
+                .x(() => GetDependency<IConsoleAdapter>().Verify(m => m.WriteLine("Robot moved backwards {0}mm.", -backwardDistance), Times.Once));
         }
 
         [Scenario]
@@ -49,7 +49,7 @@ namespace UnitTests
                 .x(() => TestInstance.RotateLeft(leftRotation));
 
             "Then the robot rotates left"
-                .x(() => Console.Verify(m => m.WriteLine("Robot rotated left {0} degrees.", leftRotation), Times.Once));
+                .x(() => GetDependency<IConsoleAdapter>().Verify(m => m.WriteLine("Robot rotated left {0} degrees.", leftRotation), Times.Once));
         }
 
         [Scenario]
@@ -64,7 +64,7 @@ namespace UnitTests
                 .x(() => TestInstance.RotateLeft(rightRotation));
 
             "Then the robot rotates right"
-                .x(() => Console.Verify(m => m.WriteLine("Robot rotated right {0} degrees.", -rightRotation), Times.Once));
+                .x(() => GetDependency<IConsoleAdapter>().Verify(m => m.WriteLine("Robot rotated right {0} degrees.", -rightRotation), Times.Once));
         }
 
         [Scenario]
@@ -77,7 +77,7 @@ namespace UnitTests
                 .x(() => TestInstance.Scoop(upwards));
 
             "Then the robot scoops up soil"
-                .x(() => Console.Verify(m => m.WriteLine("Robot gathered soil in scoop."), Times.Once));
+                .x(() => GetDependency<IConsoleAdapter>().Verify(m => m.WriteLine("Robot gathered soil in scoop."), Times.Once));
         }
 
         [Scenario]
@@ -90,7 +90,7 @@ namespace UnitTests
                 .x(() => TestInstance.Scoop(downwards));
 
             "Then the robot releases scoop contents"
-                .x(() => Console.Verify(m => m.WriteLine("Robot released scoop contents."), Times.Once));
+                .x(() => GetDependency<IConsoleAdapter>().Verify(m => m.WriteLine("Robot released scoop contents."), Times.Once));
         }
     }
 }

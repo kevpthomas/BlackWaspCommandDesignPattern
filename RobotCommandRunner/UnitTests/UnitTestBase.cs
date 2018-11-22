@@ -1,33 +1,30 @@
 ﻿using Bogus;
 using Moq;
-using RobotCommand;
-using TinyIoC;
+using Moq.AutoMock;
 using Xbehave;
 
 namespace UnitTests
 {
-    public abstract class UnitTestBase<TUnderTest> where TUnderTest : class 
+    public abstract class UnitTestBase<TUnderTest> where TUnderTest : class
     {
-        protected TinyIoCContainer Container;
+        private AutoMocker _autoMocker;
 
         protected Faker Faker => new Faker();
-                
-        protected Mock<IConsoleAdapter> Console;
 
         private TUnderTest _testInstance;
-        protected TUnderTest TestInstance => _testInstance ?? (_testInstance = Container.Resolve<TUnderTest>());
+        protected TUnderTest TestInstance => _testInstance ?? (_testInstance = _autoMocker.CreateInstance<TUnderTest>());
+
+        protected Mock<T> GetDependency<T>() where T : class 
+        {
+            return _autoMocker.GetMock<T>();
+        }
 
         [Background]
         public virtual void Setup()
         {
             _testInstance = null;
 
-            Console = new Mock<IConsoleAdapter>();
-
-            Container = new TinyIoCContainer();
-            Container.AutoRegister(DuplicateImplementationActions.RegisterSingle);
-
-            Container.Register((c, p) => new Robot(Console.Object));
+            _autoMocker = new AutoMocker(MockBehavior.Loose);
         }
     }
 }
