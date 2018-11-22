@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RobotCommand
+﻿namespace RobotCommand
 {
     /// <summary>
     /// Receiver class in the Command pattern. Contains the functionality to support the commands.
