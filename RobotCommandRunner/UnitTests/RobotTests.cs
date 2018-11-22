@@ -1,120 +1,96 @@
-﻿using Bogus;
-using Moq;
+﻿using Moq;
 using RobotCommand;
 using Xbehave;
+// ReSharper disable IdentifierTypo
 
 namespace UnitTests
 {
-    public class RobotTests
+    public class RobotTests : UnitTestBase<Robot>
     {
         [Scenario]
-        public void MoveForwards(Robot testInstance, int forwardDistance)
+        public void MoveForwards(int forwardDistance)
         {
-            var mockConsole = new Mock<IConsoleAdapter>();
-
-            testInstance = new Robot(mockConsole.Object);
-
-            var distanceMillimetres = new Faker().Random.Int(1, 1000);
+            var distanceMillimetres = Faker.Random.Int(1, 1000);
 
             $"Given a movement distance of {distanceMillimetres} mm"
                 .x(() => forwardDistance = distanceMillimetres);
 
             "When a robot is issued a command to move"
-                .x(() => testInstance.Move(forwardDistance));
+                .x(() => TestInstance.Move(forwardDistance));
 
             "Then the robot moves forwards"
-                .x(() => mockConsole.Verify(m => m.WriteLine("Robot moved forwards {0}mm.", forwardDistance), Times.Once));
+                .x(() => Console.Verify(m => m.WriteLine("Robot moved forwards {0}mm.", forwardDistance), Times.Once));
         }
 
         [Scenario]
-        public void MoveBackwards(Robot testInstance, int backwardDistance)
+        public void MoveBackwards(int backwardDistance)
         {
-            var mockConsole = new Mock<IConsoleAdapter>();
-
-            testInstance = new Robot(mockConsole.Object);
-
-            var distanceMillimetres = new Faker().Random.Int(-1000, -1);
+            var distanceMillimetres = Faker.Random.Int(-1000, -1);
 
             $"Given a movement distance of {distanceMillimetres} mm"
                 .x(() => backwardDistance = distanceMillimetres);
 
             "When a robot is issued a command to move"
-                .x(() => testInstance.Move(backwardDistance));
+                .x(() => TestInstance.Move(backwardDistance));
 
             "Then the robot moves backwards"
-                .x(() => mockConsole.Verify(m => m.WriteLine("Robot moved backwards {0}mm.", -backwardDistance), Times.Once));
+                .x(() => Console.Verify(m => m.WriteLine("Robot moved backwards {0}mm.", -backwardDistance), Times.Once));
         }
 
         [Scenario]
-        public void RotateLeft(Robot testInstance, double leftRotation)
+        public void RotateLeft(double leftRotation)
         {
-            var mockConsole = new Mock<IConsoleAdapter>();
-
-            testInstance = new Robot(mockConsole.Object);
-
-            var rotationDegrees = new Faker().Random.Double(1, 360);
+            var rotationDegrees = Faker.Random.Double(1, 360);
 
             $"Given a rotation angle of {rotationDegrees} degrees"
                 .x(() => leftRotation = rotationDegrees);
 
             "When a robot is issued a command to rotate"
-                .x(() => testInstance.RotateLeft(leftRotation));
+                .x(() => TestInstance.RotateLeft(leftRotation));
 
             "Then the robot rotates left"
-                .x(() => mockConsole.Verify(m => m.WriteLine("Robot rotated left {0} degrees.", leftRotation), Times.Once));
+                .x(() => Console.Verify(m => m.WriteLine("Robot rotated left {0} degrees.", leftRotation), Times.Once));
         }
 
         [Scenario]
-        public void RotateRight(Robot testInstance, double rightRotation)
+        public void RotateRight(double rightRotation)
         {
-            var mockConsole = new Mock<IConsoleAdapter>();
-
-            testInstance = new Robot(mockConsole.Object);
-
-            var rotationDegrees = new Faker().Random.Double(-360, -1);
+            var rotationDegrees = Faker.Random.Double(-360, -1);
 
             $"Given a rotation angle of {rotationDegrees} degrees"
                 .x(() => rightRotation = rotationDegrees);
 
             "When a robot is issued a command to rotate"
-                .x(() => testInstance.RotateLeft(rightRotation));
+                .x(() => TestInstance.RotateLeft(rightRotation));
 
             "Then the robot rotates right"
-                .x(() => mockConsole.Verify(m => m.WriteLine("Robot rotated right {0} degrees.", -rightRotation), Times.Once));
+                .x(() => Console.Verify(m => m.WriteLine("Robot rotated right {0} degrees.", -rightRotation), Times.Once));
         }
 
         [Scenario]
-        public void GatherSoil(Robot testInstance, bool upwards)
+        public void GatherSoil(bool upwards)
         {
-            var mockConsole = new Mock<IConsoleAdapter>();
-
-            testInstance = new Robot(mockConsole.Object);
-
             $"Given a scoop command of {true}"
                 .x(() => upwards = true);
 
             "When a robot is issued a command to scoop"
-                .x(() => testInstance.Scoop(upwards));
+                .x(() => TestInstance.Scoop(upwards));
 
             "Then the robot scoops up soil"
-                .x(() => mockConsole.Verify(m => m.WriteLine("Robot gathered soil in scoop."), Times.Once));
+                .x(() => Console.Verify(m => m.WriteLine("Robot gathered soil in scoop."), Times.Once));
         }
 
         [Scenario]
-        public void ReleaseScoop(Robot testInstance, bool downwards)
+        public void ReleaseScoop(bool downwards)
         {
-            var mockConsole = new Mock<IConsoleAdapter>();
-
-            testInstance = new Robot(mockConsole.Object);
-
             $"Given a scoop command of {false}"
                 .x(() => downwards = false);
 
             "When a robot is issued a command to scoop"
-                .x(() => testInstance.Scoop(downwards));
+                .x(() => TestInstance.Scoop(downwards));
 
             "Then the robot releases scoop contents"
-                .x(() => mockConsole.Verify(m => m.WriteLine("Robot released scoop contents."), Times.Once));
+                .x(() => Console.Verify(m => m.WriteLine("Robot released scoop contents."), Times.Once));
         }
     }
 }
