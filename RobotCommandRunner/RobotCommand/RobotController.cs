@@ -17,9 +17,11 @@ namespace RobotCommand
     {
         public Queue<RobotCommand> Commands;
         private readonly Stack<RobotCommand> _undoStack;
- 
-        public RobotController()
+        private readonly IConsoleAdapter _console;
+
+        public RobotController(IConsoleAdapter console)
         {
+            _console = console;
             Commands = new Queue<RobotCommand>();
             _undoStack = new Stack<RobotCommand>();
         }

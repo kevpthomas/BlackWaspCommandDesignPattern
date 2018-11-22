@@ -1,5 +1,6 @@
 ﻿using System;
 using RobotCommand;
+using TinyIoC;
 
 namespace RobotCommandRunner
 {
@@ -14,10 +15,12 @@ namespace RobotCommandRunner
     {
         static void Main(string[] args)
         {
+            TinyIoCContainer.Current.AutoRegister(DuplicateImplementationActions.RegisterSingle);
+
             Console.Clear();
 
-            var robot = new Robot(new ConsoleAdapter());
-            var controller = new RobotController();
+            var robot = TinyIoCContainer.Current.Resolve<Robot>();
+            var controller = TinyIoCContainer.Current.Resolve<RobotController>();
 
             var move = new MoveCommand(robot) {ForwardDistance = 1000};
             controller.Commands.Enqueue(move);
