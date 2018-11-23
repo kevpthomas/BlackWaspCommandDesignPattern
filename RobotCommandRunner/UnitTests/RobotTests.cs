@@ -38,6 +38,18 @@ namespace UnitTests
         }
 
         [Scenario]
+        public void NoMovement()
+        {
+            const int distanceMillimetres = 0;
+
+            "When a robot is issued a command with no movement distance"
+                .x(() => TestInstance.Move(distanceMillimetres));
+
+            "Then the robot does not move"
+                .x(() => GetDependency<IConsoleAdapter>().Verify(m => m.WriteLine(It.IsAny<string>(), It.IsAny<object>()), Times.Never()));
+        }
+
+        [Scenario]
         public void RotateLeft(double leftRotation)
         {
             var rotationDegrees = Faker.Random.Double(1, 360);
@@ -65,6 +77,18 @@ namespace UnitTests
 
             "Then the robot rotates right"
                 .x(() => GetDependency<IConsoleAdapter>().Verify(m => m.WriteLine("Robot rotated right {0} degrees.", -rightRotation), Times.Once()));
+        }
+        
+        [Scenario]
+        public void NoRotation()
+        {
+            const double rotationDegrees = 0;
+
+            "When a robot is issued a command with no rotation angle"
+                .x(() => TestInstance.RotateLeft(rotationDegrees));
+
+            "Then the robot does not rotate"
+                .x(() => GetDependency<IConsoleAdapter>().Verify(m => m.WriteLine(It.IsAny<string>(), It.IsAny<object>()), Times.Never()));
         }
 
         [Scenario]

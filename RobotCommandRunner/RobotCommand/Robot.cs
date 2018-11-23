@@ -18,6 +18,8 @@
 
         public void Move(int forwardDistance)
         {
+            if (forwardDistance == 0) return;
+
             if (forwardDistance > 0)
                 _console.WriteLine("Robot moved forwards {0}mm.", forwardDistance);
             else
@@ -26,6 +28,9 @@
  
         public void RotateLeft(double leftRotation)
         {
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            if (leftRotation == 0) return;
+
             if (leftRotation > 0)
                 _console.WriteLine("Robot rotated left {0} degrees.", leftRotation);
             else
