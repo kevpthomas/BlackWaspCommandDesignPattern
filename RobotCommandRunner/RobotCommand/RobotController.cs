@@ -28,7 +28,7 @@ namespace RobotCommand
  
         public void ExecuteCommands()
         {
-            Console.WriteLine("EXECUTING COMMANDS.");
+            _console.WriteLine("EXECUTING COMMANDS.");
  
             while (Commands.Count > 0)
             {
@@ -40,7 +40,7 @@ namespace RobotCommand
  
         public void UndoCommands(int numUndos)
         {
-            Console.WriteLine("REVERSING {0} COMMAND(S).", numUndos);
+            _console.WriteLine("REVERSING {0} COMMAND(S).", numUndos);
  
             while (numUndos > 0 && _undoStack.Count > 0)
             {

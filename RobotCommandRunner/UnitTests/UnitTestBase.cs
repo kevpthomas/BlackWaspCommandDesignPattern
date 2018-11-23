@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using Moq;
 using Moq.AutoMock;
+using Moq.Sequences;
 using Xbehave;
 
 namespace UnitTests
@@ -17,6 +18,11 @@ namespace UnitTests
         protected T CreateMock<T>(MockBehavior mockBehaviour = MockBehavior.Loose) where T : class
         {
             return new Mock<T>(mockBehaviour).Object;
+        }
+
+        protected T CreateMock<T>(MockBehavior mockBehaviour = MockBehavior.Loose, params object[] args) where T : class
+        {
+            return new Mock<T>(mockBehaviour, args).Object;
         }
 
         protected T GetDependency<T>() where T : class 
