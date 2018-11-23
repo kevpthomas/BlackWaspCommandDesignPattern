@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotCommandRunner", "RobotCommandRunner\RobotCommandRunner.csproj", "{13785035-0818-40E3-9147-F00DFB82E777}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotCommandRunner", "RobotCommandRunner\RobotCommandRunner.csproj", "{13785035-0818-40E3-9147-F00DFB82E777}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotCommand", "RobotCommand\RobotCommand.csproj", "{0CD5E700-50C9-43FB-BD81-C67ADE27ECDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotCommand", "RobotCommand\RobotCommand.csproj", "{0CD5E700-50C9-43FB-BD81-C67ADE27ECDD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{5ED5FFD0-B7BA-4445-B559-0C8BE162D883}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4026CE8A-74A0-4023-BD57-B5BE303025AC}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
