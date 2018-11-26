@@ -1,6 +1,7 @@
 ﻿using Moq.Sequences;
 using RobotCommand;
 using RobotCommand.Core;
+using RobotCommand.Infrastructure;
 using Shouldly;
 using Xbehave;
 // ReSharper disable RedundantAssignment

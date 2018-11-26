@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using RobotCommand.Core;
 
-namespace RobotCommand.Core
+namespace RobotCommand.Infrastructure
 {
     /// <summary>
     /// Invoker class in the Command pattern. Provides mechanism to invoke a sequence of one or more commands,
@@ -12,17 +13,17 @@ namespace RobotCommand.Core
     /// However, the invoker may be disconnected from the client.
     /// For example, the client could create a queue of commands that are executed periodically by a timed event.
     /// </remarks>
-    public class RobotController
+    public class RobotController : IRobotController
     {
-        public Queue<RobotCommand> Commands;
-        private readonly Stack<RobotCommand> _undoStack;
+        public Queue<Core.RobotCommand> Commands;
+        private readonly Stack<Core.RobotCommand> _undoStack;
         private readonly IConsoleAdapter _console;
 
         public RobotController(IConsoleAdapter console)
         {
             _console = console;
-            Commands = new Queue<RobotCommand>();
-            _undoStack = new Stack<RobotCommand>();
+            Commands = new Queue<Core.RobotCommand>();
+            _undoStack = new Stack<Core.RobotCommand>();
         }
  
         public void ExecuteCommands()

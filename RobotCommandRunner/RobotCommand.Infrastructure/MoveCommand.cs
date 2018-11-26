@@ -1,4 +1,6 @@
-﻿namespace RobotCommand.Core
+﻿using RobotCommand.Core;
+
+namespace RobotCommand.Infrastructure
 {
     /// <summary>
     /// ConcreteCommand class in the Command pattern. Command for a robot to move forward or backward.
@@ -8,7 +10,7 @@
     /// In addition to implementing the Execute method, they contain all of the information that is required
     /// to correctly perform the action using the linked Receiver object.
     /// </remarks>
-    public class MoveCommand : RobotCommand
+    public class MoveCommand : Core.RobotCommand
     {
         public int ForwardDistance { get; set; }
  

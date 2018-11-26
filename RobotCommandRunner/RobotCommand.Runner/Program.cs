@@ -19,17 +19,18 @@ namespace RobotCommand.Runner
 
             Console.Clear();
 
-            var robot = TinyIoCContainer.Current.Resolve<Robot>();
-            var controller = TinyIoCContainer.Current.Resolve<RobotController>();
+            var robot = TinyIoCContainer.Current.Resolve<IRobot>();
+            var controller = TinyIoCContainer.Current.Resolve<IRobotController>();
 
-            var move = new MoveCommand(robot) {ForwardDistance = 1000};
-            controller.Commands.Enqueue(move);
+            //TODO: refactor so that these commands can be instantiated by TinyIoc container
+            //var move = new MoveCommand(robot) {ForwardDistance = 1000};
+            //controller.Commands.Enqueue(move);
 
-            var rotate = new RotateCommand(robot) {LeftRotation = 45};
-            controller.Commands.Enqueue(rotate);
+            //var rotate = new RotateCommand(robot) {LeftRotation = 45};
+            //controller.Commands.Enqueue(rotate);
 
-            var scoop = new ScoopCommand(robot) {ScoopUpwards = true};
-            controller.Commands.Enqueue(scoop);
+            //var scoop = new ScoopCommand(robot) {ScoopUpwards = true};
+            //controller.Commands.Enqueue(scoop);
  
             controller.ExecuteCommands();
             controller.UndoCommands(3);

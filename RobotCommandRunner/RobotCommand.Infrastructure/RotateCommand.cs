@@ -1,4 +1,6 @@
-﻿namespace RobotCommand.Core
+﻿using RobotCommand.Core;
+
+namespace RobotCommand.Infrastructure
 {
     /// <summary>
     /// ConcreteCommand class in the Command pattern. Command for a robot to rotate left or right.
@@ -8,7 +10,7 @@
     /// In addition to implementing the Execute method, they contain all of the information that is required
     /// to correctly perform the action using the linked Receiver object.
     /// </remarks>
-    public class RotateCommand : RobotCommand
+    public class RotateCommand : Core.RobotCommand
     {
         public double LeftRotation { get; set; }
  

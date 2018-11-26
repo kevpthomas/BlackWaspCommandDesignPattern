@@ -87,6 +87,10 @@
       <Project>{0cd5e700-50c9-43fb-bd81-c67ade27ecdd}</Project>
       <Name>RobotCommand.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RobotCommand.Infrastructure\RobotCommand.Infrastructure.csproj">
+      <Project>{e242fc28-04f7-430d-8b9b-392d4f917fb0}</Project>
+      <Name>RobotCommand.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
