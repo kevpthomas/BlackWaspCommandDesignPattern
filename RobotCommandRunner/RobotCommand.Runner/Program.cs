@@ -15,7 +15,7 @@ namespace RobotCommand.Runner
     {
         static void Main(string[] args)
         {
-            TinyIoCContainer.Current.AutoRegister(DuplicateImplementationActions.RegisterSingle);
+            ConsoleIoCConfig.Instance.Register();
 
             Console.Clear();
 
