@@ -15,15 +15,16 @@ namespace RobotCommand.Infrastructure
     /// </remarks>
     public class RobotController : IRobotController
     {
-        public Queue<Core.RobotCommand> Commands;
-        private readonly Stack<Core.RobotCommand> _undoStack;
+        private readonly Stack<IRobotCommand> _undoStack;
         private readonly IConsoleAdapter _console;
+
+        public Queue<IRobotCommand> Commands { get; }
 
         public RobotController(IConsoleAdapter console)
         {
             _console = console;
-            Commands = new Queue<Core.RobotCommand>();
-            _undoStack = new Stack<Core.RobotCommand>();
+            Commands = new Queue<IRobotCommand>();
+            _undoStack = new Stack<IRobotCommand>();
         }
  
         public void ExecuteCommands()

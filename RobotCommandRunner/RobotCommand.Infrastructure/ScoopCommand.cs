@@ -10,7 +10,7 @@ namespace RobotCommand.Infrastructure
     /// In addition to implementing the Execute method, they contain all of the information that is required
     /// to correctly perform the action using the linked Receiver object.
     /// </remarks>
-    public class ScoopCommand : Core.RobotCommand
+    public class ScoopCommand : Core.RobotCommand, IScoopCommand
     {
         public bool ScoopUpwards { get; set; }
  

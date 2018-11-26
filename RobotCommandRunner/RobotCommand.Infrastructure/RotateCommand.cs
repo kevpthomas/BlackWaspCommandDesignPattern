@@ -10,12 +10,12 @@ namespace RobotCommand.Infrastructure
     /// In addition to implementing the Execute method, they contain all of the information that is required
     /// to correctly perform the action using the linked Receiver object.
     /// </remarks>
-    public class RotateCommand : Core.RobotCommand
+    public class RotateCommand : Core.RobotCommand, IRotateCommand
     {
         public double LeftRotation { get; set; }
  
         public RotateCommand(IRobot robot) : base(robot) { }
- 
+
         public override void Execute()
         {
             Robot.RotateLeft(LeftRotation);

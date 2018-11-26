@@ -8,7 +8,7 @@
     /// It defines a protected field that holds the Receiver that is linked to the command, which is usually set via a constructor.
     /// The class also defines an abstract method that is used by the Invoker to execute commands.
     /// </remarks>
-    public abstract class RobotCommand
+    public abstract class RobotCommand : IRobotCommand
     {
         protected IRobot Robot;
 
