@@ -1,5 +1,6 @@
 ﻿using Moq.Sequences;
 using RobotCommand;
+using RobotCommand.Core;
 using Shouldly;
 using Xbehave;
 // ReSharper disable RedundantAssignment
@@ -9,12 +10,12 @@ namespace UnitTests
     public class RobotControllerTests : UnitTestBase<RobotController>
     {
         [Scenario]
-        public void ExecuteCommands(RobotCommand.RobotCommand robotCommand1, RobotCommand.RobotCommand robotCommand2)
+        public void ExecuteCommands(RobotCommand.Core.RobotCommand robotCommand1, RobotCommand.Core.RobotCommand robotCommand2)
         {
             var sequence = Sequence.Create();
 
-            robotCommand1 = CreateMock<RobotCommand.RobotCommand>(args: CreateMock<IRobot>());
-            robotCommand2 = CreateMock<RobotCommand.RobotCommand>(args: CreateMock<IRobot>());
+            robotCommand1 = CreateMock<RobotCommand.Core.RobotCommand>(args: CreateMock<IRobot>());
+            robotCommand2 = CreateMock<RobotCommand.Core.RobotCommand>(args: CreateMock<IRobot>());
 
             robotCommand1.Setup(x => x.Execute()).InSequence();
             robotCommand2.Setup(x => x.Execute()).InSequence();
@@ -33,12 +34,12 @@ namespace UnitTests
         }
 
         [Scenario]
-        public void UndoCommands(RobotCommand.RobotCommand robotCommand1, RobotCommand.RobotCommand robotCommand2)
+        public void UndoCommands(RobotCommand.Core.RobotCommand robotCommand1, RobotCommand.Core.RobotCommand robotCommand2)
         {
             var sequence = Sequence.Create();
 
-            robotCommand1 = CreateMock<RobotCommand.RobotCommand>(args: CreateMock<IRobot>());
-            robotCommand2 = CreateMock<RobotCommand.RobotCommand>(args: CreateMock<IRobot>());
+            robotCommand1 = CreateMock<RobotCommand.Core.RobotCommand>(args: CreateMock<IRobot>());
+            robotCommand2 = CreateMock<RobotCommand.Core.RobotCommand>(args: CreateMock<IRobot>());
 
             robotCommand1.Setup(x => x.Execute()).InSequence();
             robotCommand2.Setup(x => x.Execute()).InSequence();

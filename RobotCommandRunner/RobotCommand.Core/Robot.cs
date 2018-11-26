@@ -1,4 +1,4 @@
-﻿namespace RobotCommand
+﻿namespace RobotCommand.Core
 {
     /// <summary>
     /// Receiver class in the Command pattern. Contains the functionality to support the commands.

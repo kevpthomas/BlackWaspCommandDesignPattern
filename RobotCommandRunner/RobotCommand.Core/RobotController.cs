@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RobotCommand
+namespace RobotCommand.Core
 {
     /// <summary>
     /// Invoker class in the Command pattern. Provides mechanism to invoke a sequence of one or more commands,

@@ -1,5 +1,6 @@
 ﻿using Moq;
 using RobotCommand;
+using RobotCommand.Core;
 using Xbehave;
 // ReSharper disable IdentifierTypo
 

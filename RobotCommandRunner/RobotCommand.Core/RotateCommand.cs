@@ -1,27 +1,27 @@
-﻿namespace RobotCommand
+﻿namespace RobotCommand.Core
 {
     /// <summary>
-    /// ConcreteCommand class in the Command pattern. Command for a robot to move forward or backward.
+    /// ConcreteCommand class in the Command pattern. Command for a robot to rotate left or right.
     /// </summary>
     /// <remarks>
     /// Concrete command classes are subclasses of CommandBase (<see cref="RobotCommand"/>).
     /// In addition to implementing the Execute method, they contain all of the information that is required
     /// to correctly perform the action using the linked Receiver object.
     /// </remarks>
-    public class MoveCommand : RobotCommand
+    public class RotateCommand : RobotCommand
     {
-        public int ForwardDistance { get; set; }
+        public double LeftRotation { get; set; }
  
-        public MoveCommand(IRobot robot) : base(robot) { }
+        public RotateCommand(IRobot robot) : base(robot) { }
  
         public override void Execute()
         {
-            Robot.Move(ForwardDistance);
+            Robot.RotateLeft(LeftRotation);
         }
  
         public override void Undo()
         {
-            Robot.Move(-ForwardDistance);
+            Robot.RotateLeft(-LeftRotation);
         }
     }
 }

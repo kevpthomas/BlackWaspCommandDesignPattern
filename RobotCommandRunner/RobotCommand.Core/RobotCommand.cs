@@ -1,4 +1,4 @@
-﻿namespace RobotCommand
+﻿namespace RobotCommand.Core
 {
     /// <summary>
     /// CommandBase class in the Command pattern. Provides standard contract for robot command execution.

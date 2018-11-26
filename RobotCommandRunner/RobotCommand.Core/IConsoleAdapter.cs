@@ -1,4 +1,4 @@
-﻿namespace RobotCommand
+﻿namespace RobotCommand.Core
 {
     public interface IConsoleAdapter
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RobotCommand
+namespace RobotCommand.Core
 {
     public class ConsoleAdapter : IConsoleAdapter
     {

@@ -1,4 +1,5 @@
 ﻿using RobotCommand;
+using RobotCommand.Core;
 using Xbehave;
 
 namespace UnitTests

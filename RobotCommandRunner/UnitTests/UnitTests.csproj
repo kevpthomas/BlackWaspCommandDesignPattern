@@ -83,9 +83,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RobotCommand\RobotCommand.csproj">
+    <ProjectReference Include="..\RobotCommand.Core\RobotCommand.Core.csproj">
       <Project>{0cd5e700-50c9-43fb-bd81-c67ade27ecdd}</Project>
-      <Name>RobotCommand</Name>
+      <Name>RobotCommand.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

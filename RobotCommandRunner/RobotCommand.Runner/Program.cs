@@ -1,8 +1,8 @@
 ﻿using System;
-using RobotCommand;
+using RobotCommand.Core;
 using TinyIoC;
 
-namespace RobotCommandRunner
+namespace RobotCommand.Runner
 {
     /// <summary>
     /// Client class in the Command pattern.

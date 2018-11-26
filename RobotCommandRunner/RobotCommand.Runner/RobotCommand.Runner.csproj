@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RobotCommand\RobotCommand.csproj" />
+    <ProjectReference Include="..\RobotCommand.Core\RobotCommand.Core.csproj" />
   </ItemGroup>
 
 </Project>
